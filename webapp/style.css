@@ -1,0 +1,790 @@
+/* Autor: grupo 26 */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 20px;
+}
+h1 {
+    font-size: 40px;
+}
+
+/*clase para la barra superior de la pagina*/
+.topnav {
+    height: 115px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 75, 75);
+    overflow: hidden;
+}
+
+    .topnav a {
+    float: left;            /*pero solo queremos a la izq el logo y las barras*/
+    display: block;
+    }
+
+    .topnav button {
+    float: right;
+    border: none;
+    background-color: transparent;
+    margin-top: 35px;
+    margin-right: 20px;
+    cursor: pointer;
+    }
+
+    /*clase para un link sobre la imagen de perfil, para poder usar un link sin tener que ponerla como anchor*/
+    .link {
+    float: right;
+    height: 60px;
+    width: 60px;
+    position: relative;
+    z-index: 2;
+    text-decoration: none;
+    color: rgb(255, 75, 75);
+    cursor: pointer;
+    }
+
+    .glass {
+    height: 30px;
+    width: 30px;
+    float: right;
+    margin-top: 35px;
+    margin-right: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    }
+
+    .topnav input[type=text]{
+    height: 30px;
+    float: right;
+    border: none;
+    margin-top: 35px;
+    margin-right: 16px;
+    font-size: 17px;
+    }
+
+    .userIcon {
+    height: 60px;
+    width: 60px;
+    float: right;
+    border: none;
+    margin-top: 25px;
+    margin-right: 8px;
+    cursor: pointer;
+    }
+    
+    .userName {
+    height: 60px;
+    width: 110px;
+    float: right;
+    border: none;
+    margin-top: 40px;
+    margin-right: 8px;
+	}
+
+    .logo {
+    margin-left: 40px;
+    color:black;
+    }
+
+    .hamMenu {
+    height: 50px;
+    width: 50px;
+    float: left;
+    border: none;
+    cursor: pointer;
+    }
+
+    #moreImg {
+    margin-left: 10px;
+    float: left;
+    filter: invert();
+    height: 20px;
+    width: 20px;
+    }
+
+    #icono {
+        float: right;
+    }
+
+/*clase para la barra superior de filtros*/
+.filters {
+    height: 45px;
+    width: 100%;
+    background-color: grey;
+    overflow: hidden;       /*no permitimos scroll*/
+    position: fixed;
+    z-index: 1;
+    top: 115px;             /*con top hacemos que los filtros se peguen al header*/
+    left: 0;
+    
+	}
+
+    /*Estilo para los links de dentro de la barra de filtros*/
+    .filters a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    z-index: 1;
+    font-size: 17px;
+    }
+
+    /*Cambiamos el color al pasar por encima el raton*/
+    .filters a:hover {
+    background-color: #ddd;
+    color: black;
+    }
+
+    /*Ponemos un color diferente a la pesta�a activa*/
+    .filters a.active {
+    background-color: lightyellow;
+    color: grey;
+    }
+
+/*clase para el menu lateral*/
+.sidenav {
+    height: 100%;       /*Que ocupe toda la parte izquierda de la pantalla*/
+    width: 150px;       /*En pixeles porque no creo que escalemos nuestras imagenes*/
+    position: fixed;    /*Se queda en el sitio al scrollear*/
+    top: 160px;
+    z-index: 1;         /*Lo ponemos delante de los demas elementos*/
+    bottom: 0;
+    left: 0;           /*Lo ponemos a la izquierda*/
+    background-color: orange;
+    overflow-x: hidden; /*deshabilitamos el scroll horizontal*/
+	}
+
+    /*Los iconos del menu*/
+    .sidenav a{
+    padding: 35% 8px 35% 45px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;     /*Lo ponemos en un bloque*/
+    }
+
+    /*para que cuando pases el raton por encima de los iconos cambien de color*/
+    .sidenav a:hover {
+    filter: invert();
+    }
+
+    /*clase para el icono activo*/
+    .sidenav a.active {
+    background-color: white;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    /*ponerle un pico blanco a la derecha a la clase que este activa*/
+    filter: none;
+    }
+
+    .sidenavPhoto {
+    height: 35%;
+    width: 35%;
+    }
+
+/*clase para el menu principal, donde se muestran las keys*/
+.mainMenu {
+    height: 100%;
+    width: 100%;
+    top: 70px;
+    left: 10px;
+    position: relative;
+    z-index: 0;            /*z-index de 0 para que este debajo de los demas elementos*/
+    background-color: white;
+    overflow-y: auto;
+}
+
+    /*clase claves*/
+    .key {
+    top: 10px;
+    left: 130px;
+    right: 20px;
+    position: relative;
+    height: 150px;
+    background: #fcfcfc;
+    margin: 20px 40px;
+    margin-right: 180px;
+    transition: 0.4s all;
+    }
+
+    .keyPreview {
+    height: 100%;
+    width: 85%;
+    float: left;
+    }
+
+    .keyImg {
+    height: 90%;
+    width: 220px;
+    margin: 10px;
+    float: left;
+    }
+
+    .keyPhoto {
+    height: 135px;
+    width: 190px;
+    }
+
+    .keyDesc {
+    height: 90%;
+    width: 70%;
+    margin-left: 220px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    }
+    
+    .keyTitle {
+    font-size: 18px;
+    text-decoration: underline;
+    color: black;
+    }
+
+    .precio {
+    height: 100%;
+    width: 110px;
+    float: right;
+    }
+    
+.saveAndReview {
+	height: 200px;
+	width: 240px;
+	margin-left: 20px;
+	margin-top: 100px;
+	position: fixated;
+	background: lightgrey;
+	border-radius: 20px;
+}
+
+.saveIcon {
+	height: 60px;
+	width:120px;
+	margin-top: 20px;
+	margin-left: 60px;
+}
+
+.commentIcon {
+	height: 80px;
+	width: 80px;
+	margin-left: 80px;
+}
+
+.review {
+    height: 30%;
+    width: 50%;
+}
+
+.valoracion {
+    height: fit-content;
+    width: fit-content;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.priceEuro {
+	height: fit-content;
+    width: fit-content;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    z-index: 2;
+}
+
+.price {
+    height: 40%;
+    width: 70%;
+    float: right;
+    padding-top: 40%;
+}
+
+.minPrice {
+	position: absolute;
+    /* margin-right: 6px; */
+    font-size: small;
+    margin-top: 65px;
+    margin-left: 65px;
+}
+
+.binIcon {
+	height: 30px;
+	width: 30px;
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+}
+
+.priceWishList {
+    height: 40%;
+    width: 70%;
+    float: right;
+}
+
+/* CSS PARA LA PAGINA DE REVIEWS */
+.menuReview {
+    height: 100%;
+    width: 100%;
+    top: 60px;
+    left: 10px;
+    position: relative;
+    z-index: 0;            /*z-index de 0 para que este debajo de los demas elementos*/
+    background-color: white;
+    overflow-y: auto;
+}
+
+.tituloReview {
+	margin-top: 20px;
+    margin-left: 29.5%;
+    font-size: 35px;
+    text-decoration: underline;
+}
+
+.reviewText {
+	height: 300px;
+	width: 35%;
+	margin-top: 40px;
+	margin-left: 30%;
+}
+
+.headReview {
+	height: 30px;
+	width: 100%;
+}
+
+.bodyReview {
+	height: 150px;
+	width: 100%;
+}
+
+.addReviewLink {
+	margin-left: 55%;
+}
+
+.addReviewIcon {
+	height: 40px;
+	width: 40px;
+}
+
+.reviewFail {
+	color: red;
+}
+
+.emptyKeyDescription {
+	margin-top: 60px;
+	margin-left: 30%
+}
+
+/*para hacer la sombra de las tarjetas con los juegos*/
+.shadow-1:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: inherit;
+    height: inherit;
+    z-index: -1;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.13);
+}
+
+/*Esta parte es por si la pantalla es mas peque�a, cambiamos el estilo del menu para que sea mas peque�o*/
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+/*CSS PARA LA PAGINA DE CONTACTO*/
+.menuContacto {
+    height: fit-content;
+    width: fit-content;
+    position: relative;
+    margin-top: 7%;            /*margenes*/
+    margin-left: 35%;
+    align-content: center;
+}
+
+.tituloContacto {
+    font-size: 35px;
+    text-decoration: underline;
+}
+
+/* CSS PARA PAGINAS DE ERROR */
+.menuNotFound {
+    height: fit-content;
+    width: fit-content;
+    position: relative;
+    margin-top: 10%;
+    margin-left: 25%;
+    align-content: center;
+}
+
+.keyNotFoundIcon {
+    height: 180px;
+    width: 180px;
+    margin-left: 40%;
+    margin-top: 40px;
+}
+
+.keyNotFoundQuestion {
+    height: 100px;
+    width: 150px;
+    margin-bottom: 60px;
+}
+
+.keyNotFoundText {
+	font-size: 25px;
+}
+
+.error404 {
+    margin-left: 40px;
+    color:black;
+    text-decoration: underline;
+}
+
+.pageNotFoundIcon {
+	height: 180px;
+	width: 180px;
+	margin-left: 45%;
+	margin-top: 40px;
+}
+
+.reviewNotFound {
+    height: 100px;
+    width: 100px;
+    margin-left: 45%;
+    margin-top: 100px;
+}
+
+.socialIcon {
+    height: 30px;
+    width: 30px;
+}
+
+/*CSS PARA LA PAGINA DEL JUEGO*/
+.divTable {
+    height: 50%;
+    width: 100%;
+    top: 250px;
+    left: 10px;
+    position: fixed;
+    background-color: white;
+    margin-top:115px;
+    margin-left:340px;
+    margin-right:20px;
+}
+
+.imgtable1{
+   
+   width: 100px;
+   height: 100px;
+   object-fit: contain;
+   
+}
+
+.imgtable2{
+   
+   width: 50px;
+   height: 50px;
+   object-fit: contain;
+   
+}
+
+.imgtable3{
+   
+   width: 60px;
+   height: 60px;
+   object-fit: contain;
+   
+}
+
+.table1 {
+   text-align: center;
+   background-color: lightgrey;
+   height: 300px;
+   width: 800px;
+   border: 2px solid black;
+    
+}
+
+.table1 td:hover{
+   color:green;
+   background-color: lightgrey;
+}
+
+.centrar{
+   height: 30%;
+   width: 100%;
+   top: 130px;
+   left: 345px;
+   position: fixed;
+   background-color: white;
+   margin-top:20px;
+   margin-left:20px;
+   
+
+}
+.centrarTexto{
+   height: 300px;
+   width: 750px;
+   top: 180px;
+   left: 345px;
+   position: fixed;
+   background-color: white;
+   margin-top:20px;
+   margin-left:20px;
+}
+.centrarValoracion{
+   height: 100%;
+   width: 100%;
+   top: 130px;
+   left: 1050px;
+   position: fixed;
+   background-color: transparent;
+   margin-top:30px;
+   margin-left:20px;
+}
+.centrarEstrella{
+   height: 40px;
+   width: 40px;
+   top: 120px;
+   left: 1100px;
+   position: fixed;
+   background-color: transparent;
+   margin-top:30px;
+   margin-left:20px;
+}
+.centrarTiposJuego{
+   height: 5%;
+   width: 5%;
+   top: 170px;
+   left: 1300px;
+   position: fixed;
+   background-color: white;
+   margin-top:30px;
+   margin-left:20px;
+}
+
+.keyImage {
+    height: 210px;
+    width: 230px;
+    margin-left: 16px;
+}
+
+.cabeceraTienda {
+    width: 600px;
+    border: 2px solid black;
+}
+
+.cabeceraTabla {
+    width: 400px;
+    border: 2px solid black;
+}
+
+.etiqueta {
+    height: 25px;
+    width: 140px;
+    align-content: center;
+    margin: 10px;
+    border: 5px solid black;
+}
+
+/* CSS PARA EL PERFIL*/
+.sidenav_profile {
+    height: 100%;       /*Que ocupe toda la parte izquierda de la pantalla*/
+    width: 150px;       /*En pixeles porque no creo que escalemos nuestras imagenes*/
+    position: fixed;    /*Se queda en el sitio al scrollear*/
+    top: 115px;
+    z-index: 1;         /*Lo ponemos delante de los demas elementos*/
+    bottom: 0;
+    left: 0;           /*Lo ponemos a la izquierda*/
+    background-color: orange;
+    overflow-x: hidden; /*deshabilitamos el scroll horizontal*/
+}
+
+    /*Los iconos del menu*/
+    .sidenav_profile a{
+    padding: 40% 8px 35% 45px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;     /*Lo ponemos en un bloque*/
+    }
+
+    /*para que cuando pases el raton por encima de los iconos cambien de color*/
+    .sidenav_profile a:hover {
+    filter: invert();
+    }
+
+    /*clase para el icono activo*/
+    .sidenav_profile a.active {
+    background-color: white;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    /*ponerle un pico blanco a la derecha a la clase que este activa*/
+    filter: none;
+    }
+
+    .sidenavPhoto_profile {
+        height: 45px;
+        width: 45px;
+    }
+
+
+.mainMenu_profile {
+    height: 100%;
+    width: 100%;
+    top: 70px;
+    left: 10px;
+    position: relative;
+    z-index: 0;            /*z-index de 0 para que este debajo de los demas elementos*/
+    background-color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.submenu_profile {
+    margin-top: 40px;
+    margin-left: 180px;
+}
+
+.nombre_profile {
+    top: 230px;
+    left: 580px;
+    right: 100px;
+    position: fixed;
+    width: 600px;
+    font-size: 45px;
+    color:#000000;
+    margin: 10px 40px;
+    transition: 0.4s all;
+}
+
+.mail_profile {
+    top: 300px;
+    left: 600px;
+    right: 100px;
+    position: fixed;
+    width: 600px;
+    font-size: 22px;
+    color:#000000;
+    margin: 10px 40px;
+    transition: 0.4s all;
+}
+
+.sub_profile {
+    top: 380px;
+    left: 580px;
+    right: 80px;
+    position: fixed;
+    display: block;
+    height: 30px;
+    width: 250px;
+    font-size: 20px;
+    color:#000000;
+    margin: 10px 40px;
+    transition: 0.4s all;
+}
+
+.edit_profile {
+	top: 200px;
+    left: 580px;
+    right: 80px;
+    position: fixed;
+    display: block;
+    height: 100px;
+    width: 600px;
+    font-size: 20px;
+    color:#000000;
+    margin: 10px 40px;
+    transition: 0.4s all;
+}
+
+.logout_profile {
+	margin-top: 40px;
+	font-size: 16px;
+}
+
+.editar_profile {
+    top: 200px;
+    left: 1000px;
+    position: fixed;
+    font-size: 16px;
+    color:#180cc5;
+    text-decoration: underline;
+    margin: 10px 40px;
+    transition: 0.4s all;
+}
+
+.cancel_profile {
+	margin-left: 20px;
+	font: 14px;
+}
+
+/*Cambia el color de editar al pasar con el raton*/
+.editar_profile a:hover {
+    color: #000000;
+}
+
+.image_profile {
+    float: left;
+    top: 160px;
+    left: 300px;
+    right: 100px;
+    position: fixed;
+    height: 300px;
+    width: 300px;
+    color:#000000;
+    background: #000000;
+    margin-right: 180px;
+    transition: 0.4s all;
+}
+
+.savedTitle {
+    align-content: center;
+    position: relative;
+    font-size: 30px;
+    text-decoration: underline;
+    left: 180px;
+}
+
+.reviewUser {
+	font-size: 18px;
+	/*margin-left: 75%;*/
+	float: right;
+    text-decoration: none;
+    color: black;
+}
+
+/*CSS para el login y registro de sesion*/
+.tituloLogin {
+    font-size: 35px;
+    text-decoration: none;
+    margin-bottom: 30px;
+}
+
+.loginBox {
+    width: 230px;
+    height: 20px;
+}
+
+.loginButton {
+    width: 70px;
+    height: 30px;
+}
+
+.regBox {
+    width: 230px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.regButton {
+    width: 90px;
+    height: 30px;
+    margin-left: 10px;
+}
